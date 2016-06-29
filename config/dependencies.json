@@ -35,11 +35,6 @@
             "interfaces": "ride\\library\\cms\\widget\\Widget",
             "class": "ride\\web\\cms\\controller\\widget\\GalleryWidget",
             "id": "gallery"
-        },
-        {
-            "interfaces": "ride\\library\\cms\\widget\\Widget",
-            "class": "ride\\web\\cms\\controller\\widget\\TextWidget",
-            "id": "text"
         }
     ]
 }

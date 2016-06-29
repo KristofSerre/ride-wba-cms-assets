@@ -133,7 +133,7 @@ class GenericText implements Text {
 
     /**
      * Sets a image
-     * @param string $image
+     * @param AssetEntry $image
      * @return null
      */
     public function setImage(AssetEntry $image) {
@@ -142,7 +142,7 @@ class GenericText implements Text {
 
     /**
      * Gets the image
-     * @return string
+     * @return AssetEntry
      */
     public function getImage() {
         return $this->image;

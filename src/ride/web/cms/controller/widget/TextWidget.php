@@ -7,7 +7,7 @@ use ride\library\cms\node\NodeModel;
 use ride\library\i18n\I18n;
 use ride\library\validation\exception\ValidationException;
 use ride\library\StringHelper;
-use ride\web\base\form\AssetComponent;
+
 use \ride\web\cms\form\CallToActionComponent;
 use \ride\web\cms\text\Text;
 
@@ -293,6 +293,7 @@ class TextWidget extends AbstractWidget implements StyleWidget {
             'attributes' => array(
                 'class' => 'option-image option-image-1',
             ),
+            'multiple' => false,
         ));
         $form->addRow(self::PROPERTY_IMAGE_ALIGNMENT, 'select', array(
             'label' => $translator->translate('label.alignment.image'),

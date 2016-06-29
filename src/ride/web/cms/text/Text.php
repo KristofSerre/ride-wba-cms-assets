@@ -87,7 +87,7 @@ interface Text {
 
     /**
      * Sets a image
-     * @param string $image
+     * @param AssetEntry $image
      * @return null
      */
     public function setImage(AssetEntry $image);
