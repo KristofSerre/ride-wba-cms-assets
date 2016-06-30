@@ -35,8 +35,12 @@ class TextEntry extends OrmTextEntry implements Text {
         if ($this->image === $image) {
             return;
         }
+		if ($image instanceof AssetEntry) {
+			$this->image = $image;
+			return;
+		}
 
-        $this->image = $image;
+        $this->image = null;
 
         if ($this->entryState === self::STATE_CLEAN) {
             $this->entryState = self::STATE_DIRTY;

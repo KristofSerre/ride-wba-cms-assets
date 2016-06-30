@@ -90,7 +90,7 @@ interface Text {
      * @param AssetEntry $image
      * @return null
      */
-    public function setImage(AssetEntry $image);
+    public function setImage(AssetEntry $image = NULL);
 
     /**
      * Gets the image

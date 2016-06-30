@@ -136,7 +136,7 @@ class GenericText implements Text {
      * @param AssetEntry $image
      * @return null
      */
-    public function setImage(AssetEntry $image) {
+    public function setImage(AssetEntry $image = null) {
         $this->image = $image;
     }
 
