@@ -161,11 +161,14 @@ class TextWidget extends AbstractWidget implements StyleWidget {
     public function getPropertiesPreview() {
         $text = $this->getTextIO()->getText($this->properties, $this->locale);
         $textFormat = $this->getTextFormat($text->getFormat());
+        $dependencyInjector = $this->getSystem()->getDependencyInjector();
+        $imageUrlGenerator = $dependencyInjector->get('ride\\library\\image\\ImageUrlGenerator');
 
         $title = $text->getTitle();
         $subtitle = $text->getSubtitle();
         $body = $textFormat->getHtml($text->getBody());
         $image = $text->getImage();
+
 
         $bodyStripped = trim(strip_tags($body));
         if (!$bodyStripped) {
@@ -176,6 +179,29 @@ class TextWidget extends AbstractWidget implements StyleWidget {
 
         $translator = $this->getTranslator();
         $preview = '';
+
+        if(isset($image) && null !== $image->GetValue()) {
+            try {
+                $src = $imageUrlGenerator->generateUrl($image->getValue(), array ( 'crop' => array( 'width' => '300', 'height' => '300')), null);
+            } catch (Exception $exception) {
+                $log = $dependencyInjector->get('ride\\library\\log\\Log');
+
+                if ($src != $default && $default) {
+                    try {
+                        $src = $imageUrlGenerator->generateUrl($default, $transformation, $params);
+                    } catch (Exception $exception) {
+                        $log->logException($exception);
+
+                        $src = null;
+                    }
+                } else {
+                    $log->logException($exception);
+
+                    $src = null;
+                }
+            }
+            $preview .= '<img src="' . $src . '">';
+        }
 
         if ($title) {
             $preview .= '<strong>' . $translator->translate('label.title') . '</strong>: ' . $title . '<br>';
