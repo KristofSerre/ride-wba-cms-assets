@@ -42,7 +42,7 @@ abstract class AbstractTextFormat implements TextFormat {
         $image = isset($data[TextWidget::PROPERTY_IMAGE]) && ($data[TextWidget::PROPERTY_IMAGE] instanceof AssetEntry) ? $data[TextWidget::PROPERTY_IMAGE] : null;
         $imageAlignment = isset($data[TextWidget::PROPERTY_IMAGE_ALIGNMENT]) ? $data[TextWidget::PROPERTY_IMAGE_ALIGNMENT] : null;
 
-        $text->setFormat($this->getName());
+        $text->setFormat($format);
         $text->setTitle($title);
         $text->setSubtitle($subtitle);
         $text->setBody($body);
