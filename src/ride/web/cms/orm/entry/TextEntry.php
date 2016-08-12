@@ -5,12 +5,12 @@ namespace ride\web\cms\orm\entry;
 use ride\application\orm\asset\entry\AssetEntry;
 use ride\application\orm\entry\TextEntry as OrmTextEntry;
 
-use ride\web\cms\text\Text;
+use ride\web\cms\text\OrmText;
 
 /**
  * Data container for a text
  */
-class TextEntry extends OrmTextEntry implements Text {
+class TextEntry extends OrmTextEntry implements OrmText {
 
 	/**
 	 * Constructs a new instance

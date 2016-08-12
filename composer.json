@@ -16,9 +16,15 @@
         "ride/wba-assets": ">=0.8.0",
         "ride/web-cms": ">=0.18.0"
     },
+    "scripts": {
+        "post-update-cmd": [
+            "ride\\update\\ModuleUpdate::checkVersion"
+        ]
+    },
     "autoload": {
         "psr-0": {
-            "ride\\web\\cms\\": ["src/"]
+            "ride\\web\\cms\\": ["src/"],
+            "ride\\update\\": ["src/"]
         }
     }
 }

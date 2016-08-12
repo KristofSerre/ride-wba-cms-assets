@@ -8,7 +8,7 @@ use ride\application\orm\asset\entry\AssetEntry;
 /**
  * Generic text data container
  */
-class GenericText implements Text {
+class GenericText implements OrmText {
 
     /**
      * Name of the format

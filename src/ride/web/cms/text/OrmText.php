@@ -7,7 +7,7 @@ use ride\application\orm\asset\entry\AssetEntry;
 /**
  * Interface for text
  */
-interface Text {
+interface OrmText {
 
     /**
      * Left alignment
