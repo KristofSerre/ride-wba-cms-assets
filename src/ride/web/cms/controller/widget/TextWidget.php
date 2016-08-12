@@ -11,6 +11,8 @@ use ride\library\StringHelper;
 use \ride\web\cms\form\CallToActionComponent;
 use \ride\web\cms\text\Text;
 
+use \Exception;
+
 /**
  * Widget to show a static text block
  */
@@ -180,9 +182,9 @@ class TextWidget extends AbstractWidget implements StyleWidget {
         $translator = $this->getTranslator();
         $preview = '';
 
-        if(isset($image) && null !== $image->GetValue()) {
+        if(isset($image) && $image->GetValue() !== null) {
             try {
-                $src = $imageUrlGenerator->generateUrl($image->getValue(), array ( 'crop' => array( 'width' => '300', 'height' => '300')), null);
+                $src = $imageUrlGenerator->generateUrl($image->getThumbnail(), array ( 'resize' => array( 'width' => '150', 'height' => '150')), null);
             } catch (Exception $exception) {
                 $log = $dependencyInjector->get('ride\\library\\log\\Log');
 
